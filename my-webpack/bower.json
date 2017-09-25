@@ -1,0 +1,24 @@
+{
+  "name": "webpackTest",
+  "description": "webpackTest",
+  "main": "index.js",
+  "authors": [
+    "alin <alin@dreampuppet.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bower"
+  ],
+  "homepage": "https://github.com/zhxling/alinGulp",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}

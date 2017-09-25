@@ -4,6 +4,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin")
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 // var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+// var BowerWebpackPlugin = require("bower-webpack-plugin");
 
 const VENDOR = [
     "angular",
@@ -71,6 +72,7 @@ module.exports = {
             }
         ]
     },
+    modulesDirectories: ["node_modules", "bower_components"],
     // 插件列表
     plugins: [
         // 输出的文件路径
