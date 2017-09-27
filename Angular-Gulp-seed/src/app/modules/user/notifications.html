@@ -1,0 +1,69 @@
+<!-- Created by fuwei on 17/2/9. -->
+<div id="notifications" class="wrapper wrapper-content animated fadeIn">
+  <div class="ibox">
+    <div class="ibox-content">
+      <form class="form-horizontal">
+        <div>
+          <button class="btn btn-danger m-r-sm" ng-click="ReadAllPage();">标记全部为已读</button>
+          <button class="btn btn-white" ng-click="ReadCurrentPage();">标记本页为已读</button>
+          <button class="btn btn-white pull-right" ng-click="delNotifications();">删除</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="ibox-content">
+    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="10" data-limit-navigation="5">
+      <thead>
+        <tr>
+          <th data-sort-ignore="true"></th>
+          <th>类型</th>
+          <th data-sort-ignore="true" style="width: 400px;">内容</th>
+          <th>时间</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in notifications" footable-directive ng-class="{'no-read':!item.read}" ng-click="changeStatus(item.id,item.read);">
+          <td>
+            <div class="checkbox checkbox-primary m-none">
+              <input id="{{'checkbox'+$index}}" type="checkbox" ng-model="item.selected">
+              <label for="{{'checkbox'+$index}}"></label>
+            </div>
+          </td>
+          <td style=" font-size: 20px;">
+            <span class="icon-rejected danger-color" ng-if="item.type=='rejected'"></span>
+            <span class="icon-accepted blue-color" ng-if="item.type=='accepted'"></span>
+            <span class="icon-request blue-color" ng-if="item.type=='request'"></span>
+            <span class="icon-info warning-color" ng-if="item.type=='data-warning'"></span>
+            <span class="icon-data-error danger-color" ng-if="item.type=='data-error'"></span>
+            <span class="icon-data-ready2 blue-color" ng-if="item.type=='data-ready'"></span>
+          </td>
+          <td ng-bind-html="item.content | to_html"></td>
+          <td>{{item.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr ng-if="notifications.length">
+          <td colspan="10">
+            <ul class="pagination pull-right">
+              <li class="footable-page-arrow disabled">
+                <a data-page="first" href="" ng-click="query(false,link.first.href)">首页</a>
+              </li>
+              <li class="footable-page-arrow disabled">
+                <a href="" ng-click="query(false,link.prev.href)">上一页</a>
+              </li>
+              <li class="footable-page active">
+                <a href="" ng-click="query(false,link.first.href)">1</a>
+              </li>
+              <li class="footable-page-arrow">
+                <a href="" ng-click="query(false,link.next.href)">下一页</a>
+              </li>
+              <li class="footable-page-arrow">
+                <a href="" ng-click="query(link.last.href)">末页</a>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

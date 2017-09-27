@@ -2,7 +2,7 @@
 import run from './index.run';
 import routerConfig from './index.route';
 
-angular
+module.exports = angular
     .module('inspinia', [
         require('angular-ui-router'),
         // require('ui.bootstrap'),

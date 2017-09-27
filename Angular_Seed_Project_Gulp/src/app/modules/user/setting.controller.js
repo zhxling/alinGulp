@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('inspinia')
+module.exports = angular.module('inspinia', [])
   .controller('settingCtrl', function () {
 
-  });
+  }).name;

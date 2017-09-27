@@ -17,21 +17,18 @@ gulp.task('inject-reload', ['inject'], function() {
 
 gulp.task('inject', ['scripts', 'styles'], function () {
   var injectStyles = gulp.src([
-    path.join(conf.paths.tmp, '/serve/app/**/*.css'),
-    path.join('!' + conf.paths.tmp, '/serve/app/vendor.css')
+    path.join(conf.paths.tmp, '/serve/styles/vendor.css'),
+    path.join(conf.paths.tmp, '/serve/styles/style.css'),
+    path.join(conf.paths.tmp, '/serve/styles/pageall.css')
   ], { read: false });
 
-  // var injectScripts = gulp.src([
-  //   path.join(conf.paths.src, '/app/**/*.module.js'),
-  //   path.join(conf.paths.src, '/app/**/*.js'),
-  //   path.join('!' + conf.paths.src, '/app/**/*.spec.js'),
-  //   path.join('!' + conf.paths.src, '/app/**/*.mock.js'),
-  // ])
-  // .pipe($.angularFilesort()).on('error', conf.errorHandler('AngularFilesort'));
-
-  var injectScripts =gulp.src([
-    path.join(conf.paths.tmp, '/serve/app/scripts/**/*.js'),
-  ]);
+  var injectScripts = gulp.src([
+    path.join(conf.paths.src, '/app/**/*.module.js'),
+    path.join(conf.paths.src, '/app/**/*.js'),
+    path.join('!' + conf.paths.src, '/app/**/*.spec.js'),
+    path.join('!' + conf.paths.src, '/app/**/*.mock.js')
+  ])
+  .pipe($.angularFilesort()).on('error', conf.errorHandler('AngularFilesort'));
 
   var injectOptions = {
     ignorePath: [conf.paths.src, path.join(conf.paths.tmp, '/serve')],
