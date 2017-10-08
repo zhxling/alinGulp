@@ -7,24 +7,19 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 // var BowerWebpackPlugin = require("bower-webpack-plugin");
 
 const VENDOR = [
-    "babel-polyfill",
     "angular",
-    "angular-ui-router",
-    "oclazyload"
+    "angular-ui-router"
 ]
 
 module.exports = {
     entry: {
-        bundle: [
-            "babel-polyfill",
-            "./app/js/index.js"],
+        bundle: "./app/js/index.js",
         vendor: VENDOR
     },
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, 'dist'),
         filename: "[name].js",
-        chunkFilename: '[id].build.js?[chunkhash]',
-        // publicPath: '/dist',
+        // publicPath: "dist/",
     },
     devServer: {
         port: 8084
@@ -33,7 +28,14 @@ module.exports = {
         rules: [
             {
                 test: /(\.jsx|\.js)$/,
-                loaders: ['ng-annotate-loader', 'babel-loader?presets[]=env'],
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: [
+                            "es2015", "react"
+                        ]
+                    }
+                },
                 exclude: /node_modules/
             },
             {
@@ -70,17 +72,10 @@ module.exports = {
             }
         ]
     },
-    resolve: {
-   //     root: ['node_modules'],
-       // extensions: ['.js', '.html', '.json'],
-       modules: ["node_modules"]
-   //     alias: {}
-   },
-    // modulesDirectories: ["node_modules", "bower_components"],
+    modulesDirectories: ["node_modules", "bower_components"],
     // 插件列表
     plugins: [
         // 输出的文件路径
-        new webpack.HotModuleReplacementPlugin(),
         new ExtractTextPlugin("css/[name].[hash].css"),
         new webpack.optimize.CommonsChunkPlugin({
             // vendor 的意义和之前相同
@@ -89,14 +84,10 @@ module.exports = {
             // 配合 manifest 文件使用
             minChunks: Infinity
         }),
-        // new webpack.optimize.UglifyJsPlugin({
-        //    compress: {warnings: false},
-        //    sourceMap: true
-        // }),
         new CleanWebpackPlugin(['dist/bundle.*.js','dist/manifest.*.js'], {
             // 打印 log
             verbose: true,
-            // 删除文
+            // 删除文件
             dry: false
         }),
         new HtmlWebpackPlugin({

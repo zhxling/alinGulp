@@ -1,0 +1,51 @@
+{
+  "name": "angular-webpack-spa",
+  "version": "1.0.0",
+  "description": "demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node build/dev.js",
+    "build": "webpack -p --bail --progress --profile --colors --display-modules --config webpack.dev.conf.js",
+    "serve": "webpack-dev-server --open --config webpack.dev.conf.js"
+  },
+  "author": "Finley",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-animate": "^1.6.6",
+    "angular-aria": "^1.6.6",
+    "angular-loading-bar": "^0.9.0",
+    "angular-messages": "^1.6.6",
+    "angular-sanitize": "^1.6.6",
+    "angular-ui-router": "^0.4.2",
+    "bootstrap": "^3.3.7",
+    "expose-loader": "^0.7.3",
+    "glob": "^7.1.1",
+    "html-webpack-plugin": "^2.30.1",
+    "imports-loader": "^0.7.1",
+    "jquery": "^3.2.1",
+    "oclazyload": "^1.1.0",
+    "shelljs": "^0.7.7"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.6.0",
+    "bundle-loader": "^0.5.5",
+    "css-loader": "^0.27.3",
+    "eslint": "4.5.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-plugin-import": "2.7.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.10.1",
+    "node-notifier": "^5.0.2",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.14.1",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1",
+    "write-file-webpack-plugin": "^4.2.0"
+  }
+}
