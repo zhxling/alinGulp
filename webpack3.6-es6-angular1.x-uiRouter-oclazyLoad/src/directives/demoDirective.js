@@ -1,4 +1,4 @@
-module.exports = ngModule => {
+export default (ngModule) => {
   ngModule.directive('copyRight', function(){
     return {
       restrict: 'EA',

@@ -1,4 +1,4 @@
-const baseUrl = require('../../config').api.baseUrl;
+const baseUrl = require('../config').api.baseUrl;
 
 module.exports = ngModule => {
   ngModule.factory('apiRequest', ['$http', '$q', '$timeout',

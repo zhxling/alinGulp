@@ -1,4 +1,4 @@
 module.exports = angular => {
   const dashboardModule = angular.module('dashboardModule', []);
-  require('./dashboardController')(dashboardModule);
+  require('./dashboard.ctrl')(dashboardModule);
 }

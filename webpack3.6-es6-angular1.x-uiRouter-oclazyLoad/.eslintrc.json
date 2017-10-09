@@ -7,7 +7,9 @@
     "commonjs": true
   },
   "globals": {
-    "angular": true
+    "angular": true,
+    "require": true,
+    "module": true,
   },
   "rules": {
     "no-console": 0,

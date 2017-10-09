@@ -6,6 +6,10 @@ const source = __dirname + '/src/';
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 
+const extractCSS = new ExtractTextPlugin('css/[name]-one.css');
+const extractLESS = new ExtractTextPlugin('css/[name]-two.css');
+const extractLESS1 = new ExtractTextPlugin('css/[name]-three.css');
+
 function assetsPath(_path) {
   return path.posix.join('assets', _path)
 }
@@ -37,7 +41,8 @@ module.exports = {
   devServer: {
     hot: true,
     compress: true,
-    contentBase: './dist'
+    contentBase: './dist',
+    port: 7070
   },
   module: {
     rules: [
@@ -48,17 +53,21 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
+        use: extractCSS.extract({
           use: 'css-loader'
         })
       },
       {
-        test: /\.(sass|scss)/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
+        test: /style\.less$/,
+        use: extractLESS.extract({
+          loader: 'css-loader!postcss-loader!less-loader'
+        })
+      },
+      {
+        test: /[^style]*\.less$/,
+        use: extractLESS1.extract({
+          loader: 'css-loader!postcss-loader!less-loader'
+        })
       },
       {
         test: /\.html$/,
@@ -96,14 +105,16 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(['dist']),
     new WriteFilePlugin(),
-    new ExtractTextPlugin('vendor.css'),
+    extractCSS,
+    extractLESS,
+    extractLESS1,
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor']
     }),
     new HtmlWebpackPlugin({
-      favicon: './favicon.ico', //favicon路径
-      title: 'angular-ui-router-webpack',
-      template: 'src/index.template.html'
+      favicon: './src/favicon.ico', // favicon路径
+      title: 'angular1.x-es6-webpack3.6-oclazyLoad',
+      template: './src/index.html'
     })
   ]
 };
