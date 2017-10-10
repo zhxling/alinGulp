@@ -1,25 +1,34 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const source = __dirname + '/src/';
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const WriteFilePlugin = require('write-file-webpack-plugin');
 
-function assetsPath(_path) {
-  return path.posix.join('static', _path)
-}
+const extractVendor = new ExtractTextPlugin('css/vendor.css');
+
+
+const source = __dirname + '/src/';
+// set the environment by npm lifecycle event , `npm run build` npm_lifecycle_event is build
+const ENV = process.env.npm_lifecycle_event;
+const isProd = ENV === 'build';
+
+var vendor = [
+  'angular',
+  'angular-ui-router',
+  'angular-messages',
+  'angular-loading-bar'
+]
 
 module.exports = {
   // TODO hash plugin
   entry: {
+    vendor: vendor,
     index: './src/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     // where to load chunk file
-    // publicPath: '/dist/',
-    filename: '[name].[hash:5].js',
-    chunkFilename: '[name].[chunkhash].js',
+    filename: 'js/[name].[hash:5].js',
+    chunkFilename: 'js/[name].[chunkhash].js',
   },
   resolve: {
     extensions: ['.js'],
@@ -32,41 +41,36 @@ module.exports = {
       views: source + 'views'
     }
   },
-  devServer: {
-    hot: true,
-    contentBase: './dist'
-  },
   module: {
     rules: [
+      // {
+      //   enforce: 'pre',  // ESLint 优先级高于其他 JS 相关的 loader
+      //   test: /\.js$/,
+      //   exclude: /node_modules/,
+      //   loader: 'eslint-loader'
+      // },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
+      // 外部引入的css
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
+        use: extractVendor.extract({
           use: 'css-loader'
-        })
-      },
-      {
-        test: /\.(sass|scss)/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
+        }),
       },
       {
         test: /\.html$/,
-        loader: 'raw-loader'
+        loader: 'html-loader',
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: assetsPath('img/[name].[hash:7].[ext]')
+          name: 'assets/img/[name].[hash:7].[ext]'
         }
       },
       {
@@ -74,7 +78,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: assetsPath('fonts/[name].[hash:7].[ext]')
+          name: 'assets/fonts/[name].[hash:7].[ext]'
         }
       },
       {
@@ -90,14 +94,18 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin('vendor.css'),
+    extractVendor,
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor']
+      name: 'vendor', 
+      filename: isProd ? 'js/vendor.[hash].js' : 'js/vendor.js'
     }),
     new HtmlWebpackPlugin({
-      title: 'angular-ui-router-webpack',
-      template: 'src/index.template.html'
+      favicon: './src/favicon.ico', // favicon路径
+      title: 'angular1.x-es6-webpack3.6-oclazyLoad',
+      template: './src/index.html',
+      minify: {
+        removeComments: true
+      }
     })
   ]
 };

@@ -1,120 +1,52 @@
-const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const source = __dirname + '/src/';
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 
-const extractCSS = new ExtractTextPlugin('css/[name]-one.css');
-const extractLESS = new ExtractTextPlugin('css/[name]-two.css');
-const extractLESS1 = new ExtractTextPlugin('css/[name]-three.css');
+// 读取同一目录下的 base config
+const config = require('./webpack.base.conf');
 
-function assetsPath(_path) {
-  return path.posix.join('assets', _path)
-}
+config.output.path = path.resolve(__dirname, '.tmp')
 
-module.exports = {
-  // TODO hash plugin
-  entry: {
-    index: './src/index.js'
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    // where to load chunk file
-    // publicPath: '/dist/',
-    filename: 'js/[name].[hash:5].js',
-    chunkFilename: 'js/[name].[chunkhash].js',
-  },
-  resolve: {
-    extensions: ['.js'],
-    modules: [
-      path.resolve(__dirname, 'node_modules')
-    ],
-    alias: {
-      components: source + 'components',
-      router: source + 'router',
-      views: source + 'views'
-    }
-  },
-  // devtool: 'inline-source-map',
-  devServer: {
-    hot: true,
-    compress: true,
-    contentBase: './dist',
-    port: 7070
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.css$/,
-        use: extractCSS.extract({
-          use: 'css-loader'
-        })
-      },
-      {
-        test: /style\.less$/,
-        use: extractLESS.extract({
-          loader: 'css-loader!postcss-loader!less-loader'
-        })
-      },
-      {
-        test: /[^style]*\.less$/,
-        use: extractLESS1.extract({
-          loader: 'css-loader!postcss-loader!less-loader'
-        })
-      },
-      {
-        test: /\.html$/,
-        loader: 'raw-loader'
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: assetsPath('img/[name].[hash:7].[ext]')
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: assetsPath('fonts/[name].[hash:7].[ext]')
-        }
-      },
-      {
-        test: require.resolve('jquery'),
-        use: [{
-          loader: 'expose-loader',
-          options: 'jQuery'
-        }, {
-          loader: 'expose-loader',
-          options: '$'
-        }]
-      }
-    ]
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new CleanWebpackPlugin(['dist']),
-    new WriteFilePlugin(),
-    extractCSS,
-    extractLESS,
-    extractLESS1,
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor']
-    }),
-    new HtmlWebpackPlugin({
-      favicon: './src/favicon.ico', // favicon路径
-      title: 'angular1.x-es6-webpack3.6-oclazyLoad',
-      template: './src/index.html'
-    })
-  ]
+// 对于需要热加载的css的处理
+config.module.rules.push(
+  // 自定义的公共css
+  {
+    test: /\.less$/,
+    loader: 'style-loader!css-loader!postcss-loader!less-loader',
+    exclude: /node_modules/
+  }
+);
+
+// 添加 webpack-dev-server 相关的配置项
+config.devServer = {
+  contentBase: './.tmp',
+  hot: true
 };
+
+// 添加 Sourcemap 支持
+config.plugins.push(
+  new webpack.SourceMapDevToolPlugin({
+    filename: '[file].map',
+    exclude: ['vendor.js'] // vendor 通常不需要 sourcemap
+  })
+);
+
+// Hot module replacement
+Object.keys(config.entry).forEach((key) => {
+  // 这里有一个私有的约定，如果 entry 是一个数组，则证明它需要被 hot module replace
+  if (Array.isArray(config.entry[key])) {
+    config.entry[key].unshift(
+      'webpack-dev-server/client?http://0.0.0.0:8080',
+      'webpack/hot/only-dev-server'
+    );
+  }
+});
+
+config.plugins.push(
+  new webpack.HotModuleReplacementPlugin(),
+  new CleanWebpackPlugin(['.tmp']),
+  new WriteFilePlugin()
+);
+
+module.exports = config;

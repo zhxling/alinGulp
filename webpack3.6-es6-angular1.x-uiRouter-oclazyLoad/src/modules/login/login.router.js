@@ -1,4 +1,4 @@
-  require('./login.less')
+require('./login.less')
 let LoginRouter = {
     name: 'login',
     url: '/login',

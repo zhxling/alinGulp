@@ -1,3 +1,4 @@
+require('./dashboard.less')
 let dashboardRouter =
   {
     name: 'dashboard',

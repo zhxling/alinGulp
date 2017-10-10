@@ -46,7 +46,7 @@ ngModule.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
     $httpProvider.interceptors.push('httpInterceptorService');
 
     // https://stackoverflow.com/questions/41116962/directives-passing-parameter-undefined-while-updating-1-5-x-to-1-6-angular/41117676#41117676
-    // $compileProvider.preAssignBindingsEnabled(true);
+    $compileProvider.preAssignBindingsEnabled(true);
 
     // 加载进度条配置 https://github.com/chieffancypants/angular-loading-bar
     cfpLoadingBarProvider.includeBar = true;

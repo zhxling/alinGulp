@@ -49,9 +49,11 @@ angular1.x-es6-oclazyLoad-webpack3.6-seed
 ├── .eslintrc.json                   # eslint配置文件
 ├── .gitignore                       # git忽略提交配置文件
 ├── package.json                     # npm安装包配置文件
+├── postcss.config.js                # postcss处理css的配置文件，如给css加浏览器前缀
 ├── readme.md                        # 项目说明文件
+├── webpack.base.conf.js             # webpack开发环境和生产环境中通用的配置文件
 ├── webpack.dev.conf.js              # webpack开发环境打包配置文件
-└── webpack.conf.js                  # webpack生产环境打包配置文件
+└── webpack.config.js                # webpack生产环境打包配置文件
 ```
 
 ## Thanks

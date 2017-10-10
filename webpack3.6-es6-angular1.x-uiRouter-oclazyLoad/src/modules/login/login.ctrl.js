@@ -1,6 +1,8 @@
 module.exports = loginModule => {
   loginModule.controller('loginController',
     function ($rootScope, $scope, $state, $stateParams, identityService, apiRequest) {
+      let a='modules/login/login.less';
+      console.log(/modules[a-zA-z0-9\/]*\.less$/.test(a))
       $scope.logIn = () => {
         const loginInfo = {
           username: $scope.username,
