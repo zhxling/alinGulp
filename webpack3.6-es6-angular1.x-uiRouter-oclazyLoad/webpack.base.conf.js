@@ -95,6 +95,12 @@ module.exports = {
   },
   plugins: [
     extractVendor,
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        // materialize-css rely on this to support velocity
+        "window.jQuery": "jquery"
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor', 
       filename: isProd ? 'js/vendor.[hash].js' : 'js/vendor.js'
