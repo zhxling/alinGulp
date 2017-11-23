@@ -1,0 +1,128 @@
+#svg-draw {
+    position: relative;
+
+    #svg {
+        position: relative;
+        margin: 0;
+        height: calc(~"100vh - 185px");
+        box-shadow: 2px 2px 10px rgba(0,0,0,.4);
+        border-radius: 5px;
+
+        .show-left-side, .show-right-side{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            width: 16px;
+            cursor: pointer;
+
+            i {
+                position: absolute;
+                top: 50%;
+            }
+            opacity: 0;
+        }
+        .show-left-side:hover, .show-right-side:hover {
+            opacity: 1;
+        }
+
+        .show-left-side{
+            left: 0;
+        }
+
+        .show-right-side{
+            right: 0;
+
+            i {
+                right: 0;
+            }
+        }
+    }
+
+    #tip-bubble {
+        position: absolute;
+        z-index: 999999;
+        border: 1px solid red;
+        color: red;
+        background-color: #ece9e9;
+        padding: 10px;
+    }
+
+    .left-side {
+        display: none;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+
+        width: 280px;
+
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 10px rgba(0,0,0,.4);
+        border-radius: 5px;
+        z-index: 999999;
+    }
+
+    &.showLeftSide {
+        #svg {
+            margin-left: 290px;
+        }
+
+        .left-side{
+            display: block;
+        }
+    }
+
+    .right-Side {
+        display: none;
+
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        width: 280px;
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 10px rgba(0,0,0,.4);
+        border-radius: 5px;
+
+        .equipment-item {
+            position: relative;
+            margin: 10px;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 10px rgba(0,0,0,.4);
+            border-radius: 5px;
+
+            .row{
+                margin: 5px -5px;
+            }
+
+            .delete {
+                position: absolute;
+                right: -6px;
+                top: -6px;
+                z-index: 1;
+                cursor: pointer;
+                font-size: 18px;
+            }
+
+            video {
+                width: 100%;
+                margin-left: -10px;
+                margin-right: -10px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &.showRightSide {
+        #svg {
+            margin-right: 290px;
+        }
+
+        .right-side {
+            display: block;
+        }
+    }
+
+}

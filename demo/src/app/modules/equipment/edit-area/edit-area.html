@@ -1,0 +1,73 @@
+<div id= "svg-draw">
+    <div class="btn btn-primary save" ng-click="vm.saveSvg()">保存</div>
+    <div id="svg"></div>
+    <div id="toolbox">
+        <h2>创建</h2>
+        <div id="create-shape" class="p-xs">
+            <img ng-repeat="shape in vm.shapes" ng-src="{{shape.icon}}" class="shapeIcon" create="{{shape.type}}" ng-click="vm.creatShapes([shape], true)">
+        </div>
+        <h2>外观和变换</h2>
+        <form id="look-and-transform" class="form-horizontal" disabled="disabled">
+            <div class="form-group">
+                <label for="subordinateRegion" class="col-sm-3 control-label">关联区域</label>
+                <div class="col-sm-9">
+                  <select name="subordinateRegion" class="chosen-select form-control" style="width: 100%;" id="nodetypeid" ng-model="vm.selectElementAttr.normal.subordinateRegion" ng-options="subordinateRegion.id as subordinateRegion.name for subordinateRegion in vm.subordinateRegions">
+                    <option value="" disabled="true">请选择关联区域</option>
+                  </select>
+                </div>
+            </div>
+            <div class="form-group" ng-if="vm.selectElement.shapeData.type == 'text'">
+                <label for="scale" class="col-sm-3 control-label">文本</label>
+                <div class="col-sm-9">
+                  <textarea ng-model="vm.selectElementAttr.normal.textContent" class="form-control" ng-change="vm.changeTextContent(vm.selectElementAttr.normal.textContent)"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="scale" class="col-sm-3 control-label">描述</label>
+                <div class="col-sm-9">
+                  <textarea ng-model="vm.selectElementAttr.normal.desription" class="form-control" ng-change="vm.changeTextContent(vm.selectElementAttr.normal.desription)"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="scale" class="col-sm-3 control-label">缩放</label>
+                <div class="col-sm-9">
+                  <input type="range" ng-model="vm.selectElementAttr.transform.scale" class="form-control no-borders" min="0.1" max="2" step="0.01" ng-change="vm.scale(vm.selectElementAttr.transform.scale)">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="rotate" class="col-sm-3 control-label">旋转</label>
+                <div class="col-sm-9">
+                {{vm.selectElementAttr.transform.rotate}}
+                  <input type="range" list="tickmarks" ng-model="vm.selectElementAttr.transform.rotate" class="form-control no-borders" ng-change="vm.rotate(vm.selectElementAttr.transform.rotate)">
+                  <datalist id="tickmarks">
+                      <option value="0" label="0%">
+                      <option value="10">
+                      <option value="20">
+                      <option value="30">
+                      <option value="40">
+                      <option value="50" label="50%">
+                      <option value="60">
+                      <option value="70">
+                      <option value="80">
+                      <option value="90">
+                      <option value="100" label="100%">
+                    </datalist>
+                </div>
+            </div> -->
+            <div class="form-group">
+                <label class="col-sm-3 control-label">旋转</label>
+                <div class="col-sm-9 rotate-box">
+                    <!-- <button class="form-control" ng-click="vm.rotate(30)">30</button"> -->
+                    <button class="form-control" ng-click="vm.rotate(45)">45</button">
+                    <button class="form-control" ng-click="vm.rotate(90)">90</button">
+                    <button class="form-control" ng-click="vm.rotate(135)">135</button">
+                    <button class="form-control" ng-click="vm.rotate(180)">180</button">
+                    <button class="form-control" ng-click="vm.rotate(225)">225</button">
+                    <button class="form-control" ng-click="vm.rotate(270)">270</button">
+                    <button class="form-control" ng-click="vm.rotate(315)">315</button">
+                    <button class="form-control" ng-click="vm.rotate(360)">360</button">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

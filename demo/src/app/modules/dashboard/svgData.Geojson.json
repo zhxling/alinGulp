@@ -1,0 +1,232 @@
+{ "type": "FeatureCollection",
+    "1000": {
+        "id": 1000,
+        "type": "region",
+        "bgSvg": "assets/images/16-F2801S-K0801-frame.svg",
+        "items": [
+            { "type": "building",
+                "id": 1100,
+                "bgSvg": "assets/images/01-TV.svg",
+                "geometry": {
+                    "type": "rect"
+                },
+                "properties": {
+                    "id": 1
+                },
+                "attribute": {
+                    "x": 290,
+                    "y": 275,
+                    "width": 87,
+                    "height": 78,
+                    "stroke": "red",
+                    "fill": "#fff"
+                }
+            },
+            { "type": "equipment",
+                "geometry": {
+                    "type": "image"
+                },
+                "properties": {
+                    "id": 1,
+                    "state": 0,
+                    "message": "视频出错啦！！！",
+                    "name": "监控1",
+                    "value": "正常",
+                    "videoSrc": "assets/video/demo.mp4"
+                },
+                "attribute": {
+                    "x": 642,
+                    "y": 280,
+                    "width": 20,
+                    "height": 20,
+                    "href": "assets/images/video.jpeg"
+                }
+            },
+            { "type": "equipment",
+                "geometry": {
+                    "type": "image"
+                },
+                "properties": {
+                    "id": 2,
+                    "name": "门禁1",
+                    "value": "正常"
+                },
+                "attribute": {
+                    "x": 710,
+                    "y": 280,
+                    "width": 20,
+                    "height": 20,
+                    "href": "assets/images/ACS.jpeg"
+                }
+            }
+        ]
+    },
+    "1100": {
+        "id": 1100,
+        "type": "building",
+        "bgSvg": "assets/images/01-TV.svg",
+        "items": [
+            { "type": "floor",
+                "id": 1110,
+                "bgSvg": "assets/images/04-TV-and-accsessControl-Of-waterClean.svg",
+                "geometry": {
+                    "type": "rect"
+                },
+                "properties": {
+                    "id": 1
+                },
+                "attribute": {
+                    "x": 290,
+                    "y": 275,
+                    "width": 87,
+                    "height": 78,
+                    "stroke": "red",
+                    "fill": "#fff"
+                }
+            },
+            { "type": "equipment",
+                "geometry": {
+                    "type": "image"
+                },
+                "properties": {
+                    "id": 1,
+                    "state": 0,
+                    "message": "视频出错啦！！！",
+                    "name": "监控1",
+                    "value": "正常",
+                    "videoSrc": "assets/video/demo.mp4"
+                },
+                "attribute": {
+                    "x": 642,
+                    "y": 280,
+                    "width": 20,
+                    "height": 20,
+                    "href": "assets/images/video.jpeg"
+                }
+            },
+            { "type": "equipment",
+                "geometry": {
+                    "type": "image"
+                },
+                "properties": {
+                    "id": 2,
+                    "name": "门禁1",
+                    "value": "正常"
+                },
+                "attribute": {
+                    "x": 710,
+                    "y": 280,
+                    "width": 20,
+                    "height": 20,
+                    "href": "assets/images/ACS.jpeg"
+                }
+            }
+        ]
+    },
+    "1110": {
+        "id": 1110,
+        "type": "floor",
+        "bgSvg": "assets/images/04-TV-and-accsessControl-Of-waterClean.svg",
+        "items": [
+            { "type": "functionArea",
+                "id": 1111,
+                "bgSvg": "assets/images/05-waste-water.svg",
+                "geometry": {
+                    "type": "rect"
+                },
+                "properties": {
+                    "id": 1
+                },
+                "attribute": {
+                    "x": 290,
+                    "y": 275,
+                    "width": 87,
+                    "height": 78,
+                    "stroke": "red",
+                    "fill": "#fff"
+                }
+            },
+            { "type": "equipment",
+                "geometry": {
+                    "type": "image"
+                },
+                "properties": {
+                    "id": 1,
+                    "state": 0,
+                    "message": "视频出错啦！！！",
+                    "name": "监控1",
+                    "value": "正常",
+                    "videoSrc": "assets/video/demo.mp4"
+                },
+                "attribute": {
+                    "x": 642,
+                    "y": 280,
+                    "width": 20,
+                    "height": 20,
+                    "href": "assets/images/video.jpeg"
+                }
+            },
+            { "type": "equipment",
+                "geometry": {
+                    "type": "image"
+                },
+                "properties": {
+                    "id": 2,
+                    "name": "门禁1",
+                    "value": "正常"
+                },
+                "attribute": {
+                    "x": 710,
+                    "y": 280,
+                    "width": 20,
+                    "height": 20,
+                    "href": "assets/images/ACS.jpeg"
+                }
+            }
+        ]
+    },
+    "1111": {
+        "id": 1111,
+        "type": "functionArea",
+        "bgSvg": "assets/images/05-waste-water.svg",
+        "items": [
+            { "type": "equipment",
+                "geometry": {
+                    "type": "image"
+                },
+                "properties": {
+                    "id": 1,
+                    "state": 0,
+                    "message": "视频出错啦！！！",
+                    "name": "监控1",
+                    "value": "正常",
+                    "videoSrc": "assets/video/demo.mp4"
+                },
+                "attribute": {
+                    "x": 642,
+                    "y": 280,
+                    "width": 20,
+                    "height": 20,
+                    "href": "assets/images/video.jpeg"
+                }
+            },
+            { "type": "equipment",
+                "geometry": {
+                    "type": "image"
+                },
+                "properties": {
+                    "id": 2,
+                    "name": "门禁1",
+                    "value": "正常"
+                },
+                "attribute": {
+                    "x": 710,
+                    "y": 280,
+                    "width": 20,
+                    "height": 20,
+                    "href": "assets/images/ACS.jpeg"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,15 @@
+<div class="header btn-primary">
+    <div class="header-title">
+        <img class="logo" src="../../../assets/images/logo.png">
+        <span class="fontSize-max">横琴热电一卡通及安全管控系统</sapn>
+        <ul class="unstyled header-menus pull-right m-r-md" ng-if="vm.isLoggedIn">
+            <li class="user-name m-r-md">系统管理员</li>
+            <li ng-if="vm.isLoggedIn">
+                <a ui-sref="login({action: 'logout'})" class="logout">
+                    <i class="glyphicon glyphicon-log-out"></i>
+                    注销
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

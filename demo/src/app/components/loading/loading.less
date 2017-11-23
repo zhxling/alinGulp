@@ -1,0 +1,57 @@
+@import "../../less/variables.less";
+
+#loading-bar .bar {
+    background: #32f33d;
+}
+#loading-bar .peg{
+    box-shadow: #32f33d 1px 0 6px 1px;
+}
+
+
+/*bc-loading START*/
+.base-loading-layer {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5)
+}
+
+.loader-outer{
+    position: absolute;
+    z-index: 999999;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
+}
+
+@keyframes line-scale-pulse-out-rapid
+{
+    0%,
+    90%{transform:scaley(1)}
+    80%{transform:scaley(.3)}
+}
+
+.line-scale-pulse-out-rapid>div {
+    background-color: #4a9dd6;
+    width: 4px;
+    height: 35px;
+    border-radius: 2px;
+    margin: 2px;
+    display: inline-block;
+    -webkit-animation: line-scale-pulse-out-rapid .9s 0s infinite cubic-bezier(.11,.49,.38,.78);
+    animation: line-scale-pulse-out-rapid .9s 0s infinite cubic-bezier(.11,.49,.38,.78);
+}
+
+.line-scale-pulse-out-rapid>div:nth-child(1), .line-scale-pulse-out-rapid>div:nth-child(5) {
+    animation-delay: .5s!important;
+}
+.line-scale-pulse-out-rapid>div:nth-child(2), .line-scale-pulse-out-rapid>div:nth-child(4) {
+    animation-delay: .25s!important;
+}
+/*bc-loading END*/

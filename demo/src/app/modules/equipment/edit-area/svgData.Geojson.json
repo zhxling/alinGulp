@@ -1,0 +1,38 @@
+{ "type": "FeatureCollection",
+    "features": [
+        { "type": "video",
+            "geometry": {
+                "type": "image"
+            },
+            "properties": {
+                "state": 0,
+                "message": "视频出错啦！！！",
+                "name": "监控1",
+                "value": "正常"
+            },
+            "attribute": {
+                "x": 642,
+                "y": 280,
+                "width": 40,
+                "height": 40,
+                "href": "assets/images/video.jpeg"
+            }
+        },
+        { "type": "ACS",
+            "geometry": {
+                "type": "image"
+            },
+            "properties": {
+                "name": "门禁1",
+                "value": "正常"
+            },
+            "attribute": {
+                "x": 710,
+                "y": 280,
+                "width": 40,
+                "height": 40,
+                "href": "assets/images/ACS.jpeg"
+            }
+        }
+    ]
+}

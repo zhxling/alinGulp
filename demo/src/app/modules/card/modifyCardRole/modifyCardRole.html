@@ -1,0 +1,51 @@
+<div>
+    <div style="width: 50%; margin: 0 auto;">
+        <form class="form-horizontal" name="loginForm">
+            <div class="form-group">
+                <label for="inputEmail" class="control-label col-sm-2">卡号</label>
+                <div class="col-sm-8">
+                    11111111111111111111
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="control-label col-sm-2">设备权限</label>
+                <div class="col-sm-8">
+                    <input type="checkbox" class="control-label" checked>设备1<br>
+                    <input type="checkbox" class="control-label">设备2<br>
+                    <input type="checkbox" class="control-label" checked>设备3<br>
+                    <input type="checkbox" class="control-label">设备4<br>
+                    <input type="checkbox" class="control-label">设备5<br>
+                    <input type="checkbox" class="control-label" checked>设备6<br>
+                    <input type="checkbox" class="control-label">设备7<br>
+                    <input type="checkbox" class="control-label">设备8<br>
+                    <input type="checkbox" class="control-label" checked>设备9<br>
+                    <input type="checkbox" class="control-label">设备10<br>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="control-label col-sm-2">门禁权限</label>
+                <div class="col-sm-8">
+                    <input type="checkbox" class="control-label" checked>门禁1<br>
+                    <input type="checkbox" class="control-label">门禁2<br>
+                    <input type="checkbox" class="control-label" checked>门禁3<br>
+                    <input type="checkbox" class="control-label">门禁4<br>
+                    <input type="checkbox" class="control-label">门禁5<br>
+                    <input type="checkbox" class="control-label" checked>门禁6<br>
+                    <input type="checkbox" class="control-label">门禁7<br>
+                    <input type="checkbox" class="control-label">门禁8<br>
+                    <input type="checkbox" class="control-label" checked>门禁9<br>
+                    <input type="checkbox" class="control-label">门禁10<br>
+                </div>
+            </div>
+
+                <div class="form-group">
+                </div>
+            <div class="form-group" ng-show="!vm.showCreateZone">
+                <div class="col-sm-offset-4 col-sm-2">
+                    <button type="button" class="btn btn-default center-block btn-block" ng-click="vm.modify()">修改</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div ui-view></div>

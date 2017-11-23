@@ -1,0 +1,37 @@
+/*
+ *
+ *   INSPINIA - Responsive Admin Theme
+ *   version 2.7.1
+ *
+*/
+
+// Google Fonts
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+
+// Variables, Mixins
+@import "variables.less";
+@import "mixins.less";
+@import "plugin-change.less";
+// INSPINIA Theme Elements
+
+@import "base.less";
+
+// Media query style
+@import "media.less";
+
+// Custom style
+// Your custom style to override base style
+@import "custom.less";
+
+// Clear layout on print mode
+@media print {
+  nav.navbar-static-side {
+    display: none;
+  }
+
+  body { overflow: visible !important; }
+
+  #page-wrapper {
+    margin: 0;
+  }
+}

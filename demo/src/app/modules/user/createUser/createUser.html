@@ -1,0 +1,42 @@
+<div>
+    <div style="width: 50%; margin: 0 auto;">
+        <form class="form-horizontal" name="loginForm">
+            <div class="form-group">
+                <label for="inputEmail" class="control-label col-sm-2">登录名</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="登录名" ng-model="vm.email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="control-label col-sm-2">用户名</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="用户名" ng-model="vm.email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="control-label col-sm-2">邮箱</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="邮箱" ng-model="vm.email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="control-label col-sm-2">密码</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="密码" ng-model="vm.password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="control-label col-sm-2">确认密码</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="确认密码" ng-model="vm.password">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-6 col-sm-2">
+                    <button type="button" class="btn btn-default center-block btn-block" ng-click="vm.create()">创建</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div ui-view></div>

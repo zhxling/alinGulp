@@ -1,0 +1,37 @@
+<div class="ibox-content">
+    <table class="footable table table-hover table-striped fontSize-sm" data-page-size="20">
+        <thead>
+        <tr>
+            <th data-toggle="true">位置</th>
+            <th data-toggle="true">报警内容</th>
+            <th data-toggle="true">报警时间</th>
+            <th data-sort-ignore="true">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><a href=""><span ng-click="vm.modifyCardRole()">锅炉房控制室</span></a></td>
+            <td>报警内容11111111111</td>
+            <td>2017-07-15 19:36:01</td>
+            <td>详情|<a href=""><span ng-click="vm.playVideo()">视频播放</span></a>|<span data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-original-title="报警内容11111111111"
+                      data-content='<video width="160" height="80" controls autoplay><source src="../../../assets/video/demo.mp4" type="video/ogg"></video>'><a href="">视频缩略</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td>污水车间电子设备室</td>
+            <td>报警内容222222222222</td>
+            <td>2017-07-15 19:34:12</td>
+            <td>详情|视频播放|视频缩略</td>
+        </tr>
+        <tr>
+            <td>循环水泵房控制室</td>
+            <td>报警内容333333333</td>
+            <td>2017-07-15 19:01:43</td>
+            <td>详情|视频播放|视频缩略</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+</div>
+<div ui-view></div>

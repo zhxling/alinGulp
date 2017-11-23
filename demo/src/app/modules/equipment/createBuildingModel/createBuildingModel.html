@@ -1,0 +1,171 @@
+<div>
+    <div style="width: 50%; margin: 0 auto;">
+        <form class="form-horizontal" name="loginForm">
+            <div class="form-group">
+                <label for="inputEmail" class="control-label col-sm-2">名称</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="名称" ng-model="vm.email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="control-label col-sm-2">位置</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="位置" ng-model="vm.email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="control-label col-sm-2">说明</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" name="email" id="inputEmail" placeholder="说明" ng-model="vm.email" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="control-label col-sm-2">图片</label>
+                <div class="col-sm-8">
+                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                        <span class="input-group-addon btn btn-default btn-file">
+        <input type="file" name="..."/>
+        </span>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="form-group">
+                <label for="inputPassword" class="control-label col-sm-2">区域</label>
+                <div class="col-sm-8">
+                    <select class="chosen-select form-control">
+                        <option>请选择区域</option>
+                        <option>区域1</option>
+                        <option>区域2</option>
+                        <option>区域3</option>
+                        <option>区域4</option>
+                        <option>区域5</option>
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-default center-block btn-block" ng-click="vm.createZone()">新建区域</button>
+                </div>
+            </div>
+            -->
+            <!--新建的区域-->
+            <div ng-show="vm.showCreateZone">&nbsp;</div>
+            <div class="form-group" ng-show="vm.showCreateZone">
+                <label for="inputPassword" class="control-label col-sm-2">新区域名称</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="区域名称" ng-model="vm.email">
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="form-group" ng-show="vm.showCreateZone">
+                <label for="inputPassword" class="control-label col-sm-2">建筑</label>
+                <div class="col-sm-8">
+                    <select class="chosen-select form-control">
+                        <option>请选择建筑</option>
+                        <option>建筑1</option>
+                        <option>建筑2</option>
+                        <option>建筑3</option>
+                        <option>建筑4</option>
+                        <option>建筑5</option>
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <!--
+                    <button type="button" class="btn btn-default center-block btn-block" ng-click="vm.createBuilding()">新建建筑</button>
+                    -->
+                </div>
+            </div>
+            <div class="form-group" ng-show="vm.showCreateZone">
+                <div class="col-sm-offset-4 col-sm-3">
+                    <button type="button" class="btn btn-default center-block btn-block"
+                            ng-click="vm.zoneCreated()" ng-show="!vm.showCreateBuilding">保存新区域</button>
+                </div>
+            </div>
+            <!--新建建筑-->
+            <div ng-show="vm.showCreateBuilding">&nbsp;</div>
+            <div class="form-group" ng-show="vm.showCreateBuilding">
+                <label for="inputPassword" class="control-label col-sm-2">新建筑名称</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="建筑名称" ng-model="vm.email">
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="form-group" ng-show="vm.showCreateBuilding">
+                <label for="inputPassword" class="control-label col-sm-2">楼层</label>
+                <div class="col-sm-8">
+                    <select class="chosen-select form-control">
+                        <option>请选择楼层</option>
+                        <option>楼层1</option>
+                        <option>楼层2</option>
+                        <option>楼层3</option>
+                        <option>楼层4</option>
+                        <option>楼层5</option>
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-default center-block btn-block" ng-click="vm.createFloor()">新建楼层</button>
+                </div>
+            </div>
+            <div class="form-group" ng-show="vm.showCreateBuilding">
+                <div class="col-sm-offset-4 col-sm-3">
+                    <button type="button" class="btn btn-default center-block btn-block"
+                            ng-click="vm.buildingCreated()" ng-show="!vm.showCreateFloor">保存新建筑</button>
+                </div>
+            </div>
+            <!--新建楼层-->
+            <div ng-show="vm.showCreateFloor">&nbsp;</div>
+            <div class="form-group" ng-show="vm.showCreateFloor">
+                <label for="inputPassword" class="control-label col-sm-2">新楼层名称</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="楼层名称" ng-model="vm.email">
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="form-group" ng-show="vm.showCreateFloor">
+                <label for="inputPassword" class="control-label col-sm-2">功能区</label>
+                <div class="col-sm-8">
+                    <select class="chosen-select form-control">
+                        <option>请选择功能区</option>
+                        <option>功能区1</option>
+                        <option>功能区2</option>
+                        <option>功能区3</option>
+                        <option>功能区4</option>
+                        <option>功能区5</option>
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-default center-block btn-block" ng-click="vm.createFunctionalArea()">新建功能区</button>
+                </div>
+            </div>
+            <div class="form-group" ng-show="vm.showCreateFloor">
+                <div class="col-sm-offset-4 col-sm-3">
+                    <button type="button" class="btn btn-default center-block btn-block"
+                            ng-click="vm.floorCreated()" ng-show="!vm.showCreateFunctionalArea">保存新楼层</button>
+                </div>
+            </div>
+            <!--新功能区-->
+            <div ng-show="vm.showCreateFunctionalArea">&nbsp;</div>
+            <div class="form-group" ng-show="vm.showCreateFunctionalArea">
+                <label for="inputPassword" class="control-label col-sm-2">新功能区名称</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="功能区名称" ng-model="vm.email">
+                </div>
+            </div>
+            <div class="form-group" ng-show="vm.showCreateFunctionalArea">
+                <div class="col-sm-offset-4 col-sm-3">
+                    <button type="button" class="btn btn-default center-block btn-block"
+                            ng-click="vm.functionalAreaCreated()">保存新功能区</button>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+            <div class="form-group" ng-show="!vm.showCreateZone">
+                <div class="col-sm-offset-4 col-sm-2">
+                    <button type="button" class="btn btn-default center-block btn-block" ng-click="vm.create()">创建</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div ui-view></div>

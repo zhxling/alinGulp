@@ -1,0 +1,116 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?3akm7n');
+  src:  url('fonts/icomoon.eot?3akm7n#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?3akm7n') format('truetype'),
+    url('fonts/icomoon.woff?3akm7n') format('woff'),
+    url('fonts/icomoon.svg?3akm7n#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-edit:before {
+  content: "\e91b";
+}
+.icon-email:before {
+  content: "\ea32";
+}
+.icon-plus:before {
+  content: "\ed5d";
+}
+.icon-plus-circle:before {
+  content: "\ed5f";
+}
+.icon-cancel-circle:before {
+  content: "\ed65";
+}
+.icon-arrow-up:before {
+  content: "\edb8";
+}
+.icon-arrow-right:before {
+  content: "\edbc";
+}
+.icon-arrow-down:before {
+  content: "\edc0";
+}
+.icon-arrow-left:before {
+  content: "\edc4";
+}
+.icon-arrow-up5:before {
+  content: "\edc7";
+}
+.icon-arrow-right5:before {
+  content: "\edc8";
+}
+.icon-arrow-down5:before {
+  content: "\edc9";
+}
+.icon-arrow-left5:before {
+  content: "\edca";
+}
+.icon-home:before {
+  content: "\e900";
+}
+.icon-play:before {
+  content: "\e912";
+}
+.icon-folder-open:before {
+  content: "\e930";
+}
+.icon-folder-plus:before {
+  content: "\e931";
+}
+.icon-folder-minus:before {
+  content: "\e932";
+}
+.icon-folder-download:before {
+  content: "\e933";
+}
+.icon-folder-upload:before {
+  content: "\e934";
+}
+.icon-back:before {
+  content: "\e967";
+}
+.icon-forward:before {
+  content: "\e968";
+}
+.icon-user:before {
+  content: "\e971";
+}
+.icon-user-plus:before {
+  content: "\e973";
+}
+.icon-user-minus:before {
+  content: "\e974";
+}
+.icon-search:before {
+  content: "\e986";
+}
+.icon-zoom-in:before {
+  content: "\e987";
+}
+.icon-zoom-out:before {
+  content: "\e988";
+}
+.icon-delete:before {
+  content: "\e9ac";
+}
+.icon-list:before {
+  content: "\e9bb";
+}

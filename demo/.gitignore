@@ -1,0 +1,13 @@
+.env
+.idea
+.DS_Store
+.settings/
+.buildpath
+.project
+
+/node_modules
+/dist
+/.tmp
+.tmp/
+
+npm-debug.log

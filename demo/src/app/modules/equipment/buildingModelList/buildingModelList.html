@@ -1,0 +1,87 @@
+<div class="wrapper wrapper-content animated fadeIn ecommerce">
+
+    <div class="row">
+        <div class="allRowLeft col-sm-3">
+            <div class="ibox">
+                <div class="ibox-title border-bottom">
+                    <h5>建筑区域关系</h5>
+                    <!-- <span ng-click="addTeam()" class="pull-right">
+                      <i class="icon-plus-circle"></i>添加部门
+                    </span> -->
+                </div>
+                <div class="content-height-32px white-bg">
+                    <div nestable-tree nestable-option="vm.nestableOption"></div>
+                </div>
+            </div>
+        </div>
+        <div class="allRowRight content-height col-sm-9">
+            <div class="ibox-content">
+                <div ng-include="vm.rightTemplate"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="zoneTemplate">
+    <div style="width: 60%; margin: 0 auto; margin-top: 5%">
+        <table class="table table-bordered">
+            <tr>
+                <td width="20%">区域名称</td>
+                <td width="80%">区域1</td>
+            </tr>
+            <tr>
+                <td>区域详情</td>
+                <td>区域详情区域详情区域详情区域详情区域详情区域详情区域详情区域详情区域详情区域详情区域详情区域详情</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</script>
+
+<script type="text/ng-template" id="buildingTemplate">
+    <div style="width: 60%; margin: 0 auto; margin-top: 5%">
+        <table class="table table-bordered">
+            <tr>
+                <td width="20%">建筑名称</td>
+                <td width="80%">建筑1</td>
+            </tr>
+            <tr>
+                <td>建筑详情</td>
+                <td>建筑详情建筑详情建筑详情建筑详情建筑详情建筑详情建筑详情建筑详情建筑详情建筑详情建筑详情建筑详情建筑详情</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</script>
+
+<script type="text/ng-template" id="floorTemplate">
+    <div style="width: 60%; margin: 0 auto; margin-top: 5%">
+        <table class="table table-bordered">
+            <tr>
+                <td width="20%">楼层名称</td>
+                <td width="80%">楼层1</td>
+            </tr>
+            <tr>
+                <td>楼层详情</td>
+                <td>楼层详情楼层详情楼层详情楼层详情楼层详情楼层详情楼层详情楼层详情楼层详情楼层详情楼层详情楼层详情</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</script>
+
+<script type="text/ng-template" id="functionAreaTemplate">
+    <div style="width: 60%; margin: 0 auto; margin-top: 5%">
+        <table class="table table-bordered">
+            <tr>
+                <td width="25%">功能区名称</td>
+                <td width="75%">功能区1</td>
+            </tr>
+            <tr>
+                <td>功能区详情</td>
+                <td>功能区详情功能区详情功能区详情功能区详情功能区详情功能区详情功能区详情功能区详情功能区详情功能区详情</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</script>

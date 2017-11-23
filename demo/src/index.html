@@ -1,0 +1,19 @@
+<html ng-app="demoApp">
+<head>
+  <title>横琴热电一卡通及安全管控系统</title>
+
+  <link href="http://nos.netease.com/vod163/nep.min.css" rel="stylesheet">
+</head>
+
+
+<body>
+  <div ui-view></div>
+  <toaster-container toaster-options="{
+      'time-out': {'toast-success': 2000,'toast-warning': 2000, 'toast-error': 3000 },
+      'close-button': {'toast-success': false,'toast-warning': false, 'toast-error': true},
+      'tap-to-dismiss': {'toast-success': true,'toast-warning': false, 'toast-error': true}
+      }">
+  </toaster-container>
+</body>
+<script src="http://nos.netease.com/vod163/nep.min.js"></script>
+</html>

@@ -1,0 +1,16 @@
+<nav class="navbar-default navbar-static-side navbar" role="navigation">
+  <div class="sidebar-collapse">
+    <ul side-navigation class="nav metismenu">
+      <li ng-repeat="nav in vm.navs track by $index" ui-sref-active="active" ng-include="'nav-second-level.html'">
+      </li>
+    </ul>
+  </div>
+</nav>
+<script type="text/ng-template" id="nav-second-level.html">
+  <a href="#" ng-if="nav.children.length"><i class="{{nav.icon}}"></i>{{nav.title}}<span class="glyphicon arrow pull-right"></span></a>
+  <a ui-sref='{{nav.link}}' ng-show="!nav.children.length"><i class="{{nav.icon}}"></i>{{nav.title}}</a>
+  <ul class="nav nav-second-level collapse" ng-if="nav.children.length">
+    <li ng-repeat="nav in nav.children" ng-include="'nav-second-level.html'">
+    </li>
+  </ul>
+</script>

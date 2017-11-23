@@ -1,0 +1,36 @@
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>
+    <div>
+        <form class="form-horizontal" name="loginForm">
+            <div class="form-group">
+                <label for="inputEmail" class="control-label col-sm-2">用户</label>
+                <div class="col-sm-9">
+                    <select  class="chosen-select form-control">
+                        <option>请选择用户</option>
+                        <option selected>用户1</option>
+                        <option>用户2</option>
+                        <option>用户3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="control-label col-sm-2">角色</label>
+                <div class="col-sm-9">
+                    <select multiple class="chosen-select form-control" size="7">
+                        <option selected>角色1</option>
+                        <option>角色2</option>
+                        <option selected>角色3</option>
+                        <option>角色4</option>
+                        <option selected>角色5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-6 col-sm-2">
+                    <button type="button" class="btn btn-default center-block btn-block" ng-click="vm.modifyRole()">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

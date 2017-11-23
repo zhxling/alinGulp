@@ -1,0 +1,77 @@
+<div class="ibox-title col-sm-12 no-top-border">
+    <form class="form-inline m-t-md">
+        <div class="form-group m-r-md">
+            设备名称
+            <input type="email" class="form-control" name="email" id="inputEmail" placeholder="请输入设备名称" ng-model="vm.email">
+        </div>
+        <div class="form-group m-r-md">
+            设备类型
+            <select class="chosen-select form-control">
+                <option>全部类型</option>
+                <option>类型1</option>
+                <option>类型2</option>
+                <option>类型3</option>
+                <option>类型4</option>
+                <option>类型5</option>
+            </select>
+        </div>
+        <div class="form-group m-r-md">
+            设备尺寸
+            <select class="chosen-select form-control">
+                <option>全部尺寸</option>
+                <option>尺寸1</option>
+                <option>尺寸2</option>
+                <option>尺寸3</option>
+                <option>尺寸4</option>
+                <option>尺寸5</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-default m-r-sm">查询</button>
+        <button type="submit" ng-click="vm.showUpload()" class="btn btn-default m-r-sm">导入设备</button>
+    </form>
+</div>
+<div class="ibox-title col-sm-8 no-top-border" ng-show="vm.show">
+    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                        <div class="input-group-addon btn btn-default btn-file">
+        <input type="file" class="btn btn-default m-r-sm" style="display: inline"/>
+        <button type="submit" ng-click="vm.submitFile()" class="btn btn-default m-r-sm">提交</button>
+        </div>
+
+    </div>
+</div>
+<div class="ibox-content">
+    <table class="footable table table-hover table-striped fontSize-sm" data-page-size="20">
+        <thead>
+        <tr>
+            <th data-toggle="true">设备名称</th>
+            <th data-toggle="true">设备类型</th>
+            <th data-toggle="true">设备尺寸</th>
+            <th data-sort-ignore="true">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>设备1</td>
+            <td>类型1</td>
+            <td>尺寸1</td>
+            <td><a href=""><span ng-click="vm.detail()">详情</span></a>|<a><span ng-click="vm.delete()">删除</span></a>|<a><span ng-click="vm.link()">关联区域</span></a>
+            </td>
+        </tr>
+        <tr>
+            <td>设备2</td>
+            <td>类型2</td>
+            <td>尺寸2</td>
+            <td>详情|删除|关联区域</td>
+        </tr>
+        <tr>
+            <td>设备3</td>
+            <td>类型3</td>
+            <td>尺寸3</td>
+            <td>详情|删除|关联区域</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+</div>
+<div ui-view></div>
